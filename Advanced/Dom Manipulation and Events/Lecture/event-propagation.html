@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div id="parent" style="padding: 40px; background-color: aqua;">
+        <h2>Parent</h2>
+        <div id="child" style="padding: 40px; background-color: coral;">
+            <h3>Child</h3>
+        </div>
+    </div>
+    <script>
+        let parentElement = document.getElementById('parent');
+        let childElement = document.getElementById('child');
+
+        parentElement.addEventListener('click', () => {
+            console.log('parent');
+        });
+        childElement.addEventListener('click', () => {
+            console.log('child');
+
+        });
+
+    </script>
+
+</body>
+
+</html>
