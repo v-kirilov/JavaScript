@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div id="text-block" style="background-color: black; color: white; padding: 50px;">Lorem ipsum dolor sit</div>
+    <div>
+        <input type="text" id="some-text" />
+        <button id="some-button" disabled>Send</button>
+    </div>
+    <script>
+        let divElement = document.getElementById('text-block');
+        divElement.addEventListener('mouseover', (e) => {
+            let backgroundColor = e.currentTarget.style.backgroundColor;
+            if (backgroundColor == 'black') {
+                e.currentTarget.style.backgroundColor = 'white';
+                e.currentTarget.style.color = 'black';
+            } else {
+                e.currentTarget.style.backgroundColor = 'black';
+                e.currentTarget.style.color = 'white';
+            }
+
+            let textElement = document.getElementById('some-text');
+            let buttonELement = document.getElementById('some-button');
+
+            textElement.addEventListener('input', (e) => {
+                if (e.currentTarget.value.length >0) {
+                    
+                    buttonELement.removeAttribute('disabled');
+                }else {
+                    buttonELement.setAttribute('disabled',true);
+                }
+            });
+        });
+
+        
+    </script>
+
+</body>
+
+</html>
