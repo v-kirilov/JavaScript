@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <h1 id="heading">Movie List</h1>
+    <ul id="movie-list">
+        <li>The Matrix</li>
+    </ul>
+
+    <script>
+        let movieElement = document.createElement('li');
+        let ulElement = document.getElementById('movie-list');
+        movieElement.textContent = 'Man of steel';
+        
+        let copyLiElement = movieElement.cloneNode(true);
+        copyLiElement.textContent += ' II'
+
+        ulElement.appendChild(movieElement);
+        ulElement.prepend(copyLiElement);
+        console.log(movieElement);
+    </script>
+
+</body>
+
+</html>
