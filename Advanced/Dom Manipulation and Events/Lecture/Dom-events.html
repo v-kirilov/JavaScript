@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <h1 id="heading">Dom events | Movie List</h1>
+    <ul id="movie-list">
+        <li>The Matrix</li>
+    </ul>
+    <input type="text" name="title">
+    <button onclick="onAddClick()">Add</button>
+    <script>
+        function onAddClick() {
+            let movieInputElement = document.querySelector('input[name="title"]');
+            let movieListElement = document.getElementById('movie-list');
+
+            let movieLiElement = document.createElement('li');
+            movieLiElement.textContent=movieInputElement.value;
+
+            movieListElement.appendChild(movieLiElement);
+        }
+    </script>
+
+</body>
+
+</html>
