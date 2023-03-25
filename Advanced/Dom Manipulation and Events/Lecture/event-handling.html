@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <h1 id="heading">Movie List</h1>
+    <ul id="movie-list">
+        <li>The Matrix</li>
+        <li>Lord</li>
+        <li>Chronicles</li>
+        <li>Man of Steel</li>
+        <li>The case</li>
+    </ul>
+
+    <script>
+        let movieElements = document.querySelectorAll('#movie-list li');
+
+        movieElements.forEach(el=>{
+            el.addEventListener('click',(e)=>{
+                e.currentTarget.style.textDecoration = 'line-through';
+            });
+        })
+    </script>
+
+</body>
+
+</html>
