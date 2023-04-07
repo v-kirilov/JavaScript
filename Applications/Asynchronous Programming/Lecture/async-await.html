@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async await</title>
+</head>
+<body>
+    <script>
+        const baseUrl = 'https://swapi.dev/api';
+
+        //Function declaration
+        async function getStarWarsCharacter(id) {
+            try {
+                let response =  await fetch(`${baseUrl}/people/${id}`);
+                let character = await response.json();
+                return character;
+            } catch (error) {
+             console.log(error);   
+            }
+       
+        };
+        let name = getStarWarsCharacter(4)
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err));
+        //console.log(name);
+
+        // //function expression
+        // const getStarWarsChar = async function () {
+
+        // }
+        
+        // //Arrow function
+        // const getStarWarsChar = async() => {
+
+        // }
+    </script>
+</body>
+</html>
