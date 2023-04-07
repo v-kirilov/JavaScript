@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <h1>My movies!</h1>
+
+    <input type="text" name="name" id="name" />
+    <button id="add-person">Add</button>
+
+
+    <button id="load">Load</button>
+    <div id="list"></div>
+    <script>
+        const baseUrl = 'http://localhost:3030/jsonstore';
+        const titleElement = document.getElementById('name');
+        let addButton = document.getElementById('add-person')
+        //Use both ways of selecting with Id and query
+        let button = document.getElementById('load');
+        let listElement = document.querySelector("#list");
+
+        button.addEventListener('click', () => {
+            fetch(`${baseUrl}/phonebook`)
+                .then(reponse => reponse.json())
+                .then(phonebooks => {
+                    console.log(Object.values(phonebooks));
+                    listElement.innerHTML = '';
+                    Object.values(phonebooks).forEach(phonebook => {
+                        //Clear the list so it does not s
+                        let phoneElement = document.createElement('li');
+                        phoneElement.textContent = phonebook.person;
+                        listElement.appendChild(phoneElement);
+                    })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        });
+        addButton.addEventListener('click', () => {
+            let person = titleElement.value;
+            fetch(`${baseUrl}/phonebook`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application.json'
+                },
+                body: JSON.stringify({ person })
+            })
+                .then(res => res.json())
+        });
+
+    </script>
+
+</body>
+
+</html>
